@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HippoValidator.CssLintValidator", "HippoValidator.CssLintValidator\HippoValidator.CssLintValidator.csproj", "{ABB3C67D-2101-4FE5-9C61-6C93A0FA465D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HippoValidator.CssLintValidator.Tests", "HippoValidator.CssLintValidator.Tests\HippoValidator.CssLintValidator.Tests.csproj", "{14049587-1BE7-4C58-B0DF-EA3884D1C73B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABB3C67D-2101-4FE5-9C61-6C93A0FA465D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABB3C67D-2101-4FE5-9C61-6C93A0FA465D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABB3C67D-2101-4FE5-9C61-6C93A0FA465D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABB3C67D-2101-4FE5-9C61-6C93A0FA465D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14049587-1BE7-4C58-B0DF-EA3884D1C73B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14049587-1BE7-4C58-B0DF-EA3884D1C73B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14049587-1BE7-4C58-B0DF-EA3884D1C73B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14049587-1BE7-4C58-B0DF-EA3884D1C73B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
