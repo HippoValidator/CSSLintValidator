@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <version>$version$</version>
+    <authors>HippoValidator</authors>
+    <owners />
+    <dependencies />
+    <id>HippoValidator.CSSLintValidator</id>
+    <title>HippoValidator.CSSLintValidator</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Executes CSSLint from .NET.</description>
+    <projectUrl>https://github.com/HippoValidator/CSSLintValidator</projectUrl>
+  </metadata>
+  <files>
+    <file src="bin\$Configuration$\HippoValidator.HippoValidator.CssLintValidator.dll.dll" target="lib\net40\HippoValidator.HippoValidator.CssLintValidator.dll.dll" />
+    <file src="bin\$Configuration$\HippoValidator.HippoValidator.CssLintValidator.dll.pdb" target="lib\net40\HippoValidator.HippoValidator.CssLintValidator.dll.pdb" />
+  </files>
+</package>

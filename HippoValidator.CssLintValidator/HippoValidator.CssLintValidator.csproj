@@ -50,6 +50,7 @@
     <Compile Include="Warning.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="HippoValidator.CssLintValidator.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
