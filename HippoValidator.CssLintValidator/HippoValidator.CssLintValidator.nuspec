@@ -12,7 +12,7 @@
     <projectUrl>https://github.com/HippoValidator/CSSLintValidator</projectUrl>
   </metadata>
   <files>
-    <file src="bin\$Configuration$\HippoValidator.HippoValidator.CssLintValidator.dll" target="lib\net40\HippoValidator.HippoValidator.CssLintValidator.dll" />
-    <file src="bin\$Configuration$\HippoValidator.HippoValidator.CssLintValidator.pdb" target="lib\net40\HippoValidator.HippoValidator.CssLintValidator.pdb" />
+    <file src="bin\$Configuration$\HippoValidator.CssLintValidator.dll" target="lib\net40\HippoValidator.CssLintValidator.dll" />
+    <file src="bin\$Configuration$\HippoValidator.CssLintValidator.pdb" target="lib\net40\HippoValidator.CssLintValidator.pdb" />
   </files>
 </package>
