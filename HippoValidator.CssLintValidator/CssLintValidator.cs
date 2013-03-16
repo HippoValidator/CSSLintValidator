@@ -22,33 +22,36 @@ namespace HippoValidator.CssLintValidator
             }
         }
 
-        public ValidationResult Validate(string css)
+        public ValidationResult Validate(string css, Options options)
         {
             var result = new ValidationResult();
+            if (options == null) options = Options.AllTrue;
 
+            css = css.Replace(Environment.NewLine, string.Empty);
+
+            var js = "var options = {};" +
+                     (options.AdjoiningClasses ? "options['adjoining-classes']=true;" : string.Empty) +
+                     (options.EmptyRules ? "options['empty-rules']=true;" : string.Empty) +
+                     (options.DisplayPropertyGrouping ? "options['display-property-grouping']=true;" : string.Empty) +
+                     (options.Floats ? "options['floats']=true;" : string.Empty) +
+                     (options.FontFaces ? "options['font-faces']=true;" : string.Empty) +
+                     (options.Shorthand ? "options['shorthand']=true;" : string.Empty) +
+                     (options.FontSizes ? "options['font-sizes']=true;" : string.Empty) +
+                     (options.Ids ? "options['ids']=true;" : string.Empty) +
+                     (options.QualifiedHeadings ? "options['qualified-headings']=true;" : string.Empty) +
+                     (options.UniqueHeadings ? "options['unique-headings']=true;" : string.Empty) +
+                     (options.ZeroUnits ? "options['zero-units']=true;" : string.Empty) +
+                     (options.VendorPrefix ? "options['vendor-prefix']=true;" : string.Empty) +
+                     (options.Gradients ? "options['gradients']=true;" : string.Empty) +
+                     (options.RegexSelectors ? "options['regex-selectors']=true;" : string.Empty) +
+                     (options.BoxModel ? "options['box-model']=true;" : string.Empty) +
+                     (options.Import ? "options['import']=true;" : string.Empty) +
+                     (options.Important ? "options['important']=true;" : string.Empty) +
+                     (options.CompatibleVendorPrefixes ? "options['compatible-vendor-prefixes']=true;" : string.Empty) +
+                     (options.DuplicateProperties ? "options['duplicate-properties']=true;" : string.Empty) +
+                     "var result = CSSLint.verify('" + css + "', options);" + "var errors = result.messages;";
             _scriptEngine.Execute(
-                //"var options = {};" +
-                //"options['adjoining-classes']=true;" +
-                //"options['empty-rules']=true;" +
-                //"options['display-property-grouping']=true;" +
-                //"options['floats']=true;" +
-                //"options['font-faces']=true;" +
-                //"options['font-sizes']=true;" +
-                //"options['font-sizes']=true;" +
-                //"options['ids']=true;" +
-                //"options['qualified-headings']=true;" +
-                //"options['unique-headings']=true;" +
-                //"options['zero-units']=true;" +
-                //"options['vendor-prefix']=true;" +
-                //"options['gradients']=true;" +
-                //"options['regex-selectors']=true;" +
-                //"options['box-model']=true;" +
-                //"options['import']=true;" +
-                //"options['important']=true;" +
-                //"options['compatible-vendor-prefixes']=true;" +
-                //"options['duplicate-properties']=true;" +
-                "var result = CSSLint.verify('" + css + "');" +
-                "var errors = result.messages;");
+                js);
             var errors = ((ArrayInstance)_scriptEngine.GetGlobalValue("errors"))
                 .ElementValues
                 .OfType<ObjectInstance>();

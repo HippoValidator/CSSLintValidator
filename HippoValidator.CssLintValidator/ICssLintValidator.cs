@@ -2,6 +2,6 @@
 {
     public interface ICssLintValidator
     {
-        ValidationResult Validate(string css);
+        ValidationResult Validate(string css, Options options);
     }
 }
