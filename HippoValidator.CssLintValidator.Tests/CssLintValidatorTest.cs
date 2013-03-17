@@ -77,5 +77,16 @@ namespace HippoValidator.CssLintValidator.Tests
             // Assert
             Assert.That(result, Is.Not.Null);
         }
+
+        [Test]
+        public void CanValidateStyleWithApostrophe()
+        {
+            var css = "a { font-family: 'Arvo', Georgia, Times, serif; }";
+            var options = Options.AllTrue();
+
+            var result = _validator.Validate(css, options);
+
+            Assert.That(result, Is.Not.Null);
+        }
     }
 }

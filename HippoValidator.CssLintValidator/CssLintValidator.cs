@@ -27,7 +27,7 @@ namespace HippoValidator.CssLintValidator
             var result = new ValidationResult();
             if (options == null) options = Options.AllTrue();
 
-            css = css.Replace(Environment.NewLine, string.Empty);
+            css = css.Replace(Environment.NewLine, string.Empty).Replace("'", "\"");
 
             var js = "var options = {};" +
                      (options.AdjoiningClasses ? "options['adjoining-classes']=true;" : string.Empty) +
@@ -50,8 +50,9 @@ namespace HippoValidator.CssLintValidator
                      (options.CompatibleVendorPrefixes ? "options['compatible-vendor-prefixes']=true;" : string.Empty) +
                      (options.DuplicateProperties ? "options['duplicate-properties']=true;" : string.Empty) +
                      "var result = CSSLint.verify('" + css + "', options);" + "var errors = result.messages;";
-            _scriptEngine.Execute(
-                js);
+            
+            _scriptEngine.Execute(js);
+            
             var errors = ((ArrayInstance)_scriptEngine.GetGlobalValue("errors"))
                 .ElementValues
                 .OfType<ObjectInstance>();
