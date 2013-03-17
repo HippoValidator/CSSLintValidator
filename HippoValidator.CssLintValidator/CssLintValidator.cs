@@ -68,6 +68,13 @@ namespace HippoValidator.CssLintValidator
                     });
             }
 
+            foreach (var error in result.Errors.Where(x => !string.IsNullOrWhiteSpace(x.Evidence)))
+            {
+                var startIndex = error.Column < 10 ? 0 : error.Column - 10;
+                var count = (error.Evidence.Length - startIndex) >= 20 ? 20 : error.Evidence.Length - startIndex;
+                error.Source = error.Evidence.Substring(startIndex, count);
+            }
+
             return result;
         }
 
