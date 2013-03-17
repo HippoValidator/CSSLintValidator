@@ -25,7 +25,7 @@ namespace HippoValidator.CssLintValidator
         public ValidationResult Validate(string css, Options options)
         {
             var result = new ValidationResult();
-            if (options == null) options = Options.AllTrue;
+            if (options == null) options = Options.AllTrue();
 
             css = css.Replace(Environment.NewLine, string.Empty);
 

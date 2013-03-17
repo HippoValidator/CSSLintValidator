@@ -18,7 +18,7 @@ namespace HippoValidator.CssLintValidator.Tests
         {
             // Arrange
             var css = "a { border: 1px; }";
-            var options = Options.AllTrue;
+            var options = Options.AllTrue();
             
             // Act
             var result = _validator.Validate(css, options);
@@ -32,7 +32,7 @@ namespace HippoValidator.CssLintValidator.Tests
         {
             // Arrange
             var css = ".foo {}";
-            var options = Options.AllTrue;
+            var options = Options.AllTrue();
             options.EmptyRules = false;
 
             // Act
@@ -69,7 +69,7 @@ namespace HippoValidator.CssLintValidator.Tests
                     border: 1px;
                 }
             ";
-            var options = Options.AllTrue;
+            var options = Options.AllTrue();
 
             // Act
             var result = _validator.Validate(css, options);

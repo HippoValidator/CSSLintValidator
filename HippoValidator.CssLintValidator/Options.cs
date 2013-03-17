@@ -40,11 +40,9 @@
 
         public bool DuplicateProperties { get; set; }
 
-        public static Options AllTrue
+        public static Options AllTrue()
         {
-            get
-            {
-                return new Options
+            return new Options
                 {
                     AdjoiningClasses = true,
                     BoxModel = true,
@@ -66,7 +64,6 @@
                     VendorPrefix = true,
                     ZeroUnits = true
                 };
-            }
         }
     }
 }
