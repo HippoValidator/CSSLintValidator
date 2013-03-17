@@ -79,13 +79,30 @@ namespace HippoValidator.CssLintValidator.Tests
         }
 
         [Test]
+        public void CanValidateCssWithNewlineChar()
+        {
+            // Arrange
+            var css = "a { border: 1px;\n}";
+            var options = Options.AllTrue();
+
+            // Act
+            var result = _validator.Validate(css, options);
+
+            // Assert
+            Assert.That(result, Is.Not.Null);
+        }
+
+        [Test]
         public void CanValidateStyleWithApostrophe()
         {
+            // Arrange
             var css = "a { font-family: 'Arvo', Georgia, Times, serif; }";
             var options = Options.AllTrue();
 
+            // Act
             var result = _validator.Validate(css, options);
 
+            // Assert
             Assert.That(result, Is.Not.Null);
         }
     }

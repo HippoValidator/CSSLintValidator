@@ -27,7 +27,7 @@ namespace HippoValidator.CssLintValidator
             var result = new ValidationResult();
             if (options == null) options = Options.AllTrue();
 
-            css = css.Replace(Environment.NewLine, string.Empty).Replace("'", "\"");
+            css = css.Replace(Environment.NewLine, string.Empty).Replace("\n", string.Empty).Replace("'", "\"");
 
             var js = "var options = {};" +
                      (options.AdjoiningClasses ? "options['adjoining-classes']=true;" : string.Empty) +
@@ -75,6 +75,12 @@ namespace HippoValidator.CssLintValidator
         {
             var value = dic.GetPropertyValue(name);
             T ret = defaultValue;
+
+            if (value is Undefined)
+            {
+                return ret;
+            }
+            
             try
             {
                 if (defaultValue is string) ret = (T)(object)Convert.ToString(value);
