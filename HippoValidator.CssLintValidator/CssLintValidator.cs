@@ -14,6 +14,7 @@ namespace HippoValidator.CssLintValidator
         public CssLintValidator()
         {
             _scriptEngine = new ScriptEngine();
+            _scriptEngine.CompatibilityMode = CompatibilityMode.ECMAScript3;
             var loadedScript = typeof(CssLintValidator).Assembly.GetManifestResourceStream("HippoValidator.CssLintValidator.Scripts.CSSLint.js");
             Debug.Assert(loadedScript != null, "CSSLint.js != null");
             using (var reader = new StreamReader(loadedScript))
