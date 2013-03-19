@@ -116,5 +116,61 @@ namespace HippoValidator.CssLintValidator.Tests
             // Assert
             Assert.That(result, Is.Not.Null);
         }
+
+        [Test]
+        public void CanValidateLargeScript()
+        {
+            // Arrange
+            var css = @"
+                body{
+	                background: #eee url('grain.png') 0 0;
+	                color: #222;
+	                font-family: 'Arvo', Georgia, Times, serif;
+	                line-height: 1.5em;
+	            }
+
+                ::selection, 
+                ::-moz-selection, 
+                img::selection, 
+                img::-moz-selection{
+	                background: #2e7565;
+	                background: rgba(46,117,101,.75);
+	                color: #fff;
+	                text-shadow: 1px 1px 0 rgba(0,0,0,.5);
+	                }
+
+                hr{
+	                background: #2e7565;
+                    background: -webkit-gradient(linear, 0 0, 100% 0, from(white), to(white), color-stop(50%, #2e7565));
+	                display: block;
+	                border: none;
+	                color: white;
+	                height: 1px;
+	                margin: 1em 0;
+	                }
+
+                section{
+	                background: #fff;
+	                border: 1px solid #ccc;
+	                border-radius: 5px;
+	                display: block;
+	                margin: 100px auto 0;
+	                padding: 1em 2em 2em 2em;
+	                position: relative;
+	                width: 430px;
+	                z-index: 100;
+
+	                -moz-box-shadow: 2px 2px 30px rgba(0,0,0,.2);
+	                -webkit-box-shadow: 2px 2px 30px rgba(0,0,0,.2);
+	                box-shadow: 2px 2px 30px rgba(0,0,0,.2);
+	                }
+            ";
+
+            // Act
+            var result = _validator.Validate(css, Options.AllTrue());
+
+            // Assert
+            Assert.That(result, Is.Not.Null);
+        }
     }
 }
