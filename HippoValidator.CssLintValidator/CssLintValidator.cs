@@ -27,9 +27,14 @@ namespace HippoValidator.CssLintValidator
             var result = new ValidationResult();
             if (options == null) options = Options.AllTrue();
 
-            css = css.Replace(Environment.NewLine, string.Empty).Replace("\n", string.Empty).Replace("'", "\"");
+            css = css
+                .Replace("'", "\"")
+                .Replace(Environment.NewLine, "\\")
+                .Replace("\n", "\\")
+                .Trim(new[] {'\\', ' '});
 
-            var js = "var options = {};" +
+            var js = "var css = '" + css + "';" +
+                     "var options = {};" +
                      (options.AdjoiningClasses ? "options['adjoining-classes']=true;" : string.Empty) +
                      (options.EmptyRules ? "options['empty-rules']=true;" : string.Empty) +
                      (options.DisplayPropertyGrouping ? "options['display-property-grouping']=true;" : string.Empty) +
@@ -49,10 +54,10 @@ namespace HippoValidator.CssLintValidator
                      (options.Important ? "options['important']=true;" : string.Empty) +
                      (options.CompatibleVendorPrefixes ? "options['compatible-vendor-prefixes']=true;" : string.Empty) +
                      (options.DuplicateProperties ? "options['duplicate-properties']=true;" : string.Empty) +
-                     "var result = CSSLint.verify('" + css + "', options);" + "var errors = result.messages;";
-            
+                     "var result = CSSLint.verify(css, options);" + "var errors = result.messages;";
+
             _scriptEngine.Execute(js);
-            
+
             var errors = ((ArrayInstance)_scriptEngine.GetGlobalValue("errors"))
                 .ElementValues
                 .OfType<ObjectInstance>();

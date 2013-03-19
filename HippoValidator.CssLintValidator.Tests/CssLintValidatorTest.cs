@@ -17,7 +17,10 @@ namespace HippoValidator.CssLintValidator.Tests
         public void CanValidateValidCss()
         {
             // Arrange
-            var css = "a { border: 1px; }";
+            var css = @"
+                a {
+                    border: 1px;
+                }";
             var options = Options.AllTrue();
             
             // Act
@@ -46,7 +49,10 @@ namespace HippoValidator.CssLintValidator.Tests
         public void CanValidateWithErrors()
         {
             // Arrange
-            var css = ".foo {}";
+            var css = @"
+                .foo {
+                }
+            ";
             var options = new Options { EmptyRules = true };
 
             // Act
@@ -67,8 +73,7 @@ namespace HippoValidator.CssLintValidator.Tests
             var css = @"
                 a {
                     border: 1px;
-                }
-            ";
+                }";
             var options = Options.AllTrue();
 
             // Act
@@ -82,7 +87,9 @@ namespace HippoValidator.CssLintValidator.Tests
         public void CanValidateCssWithNewlineChar()
         {
             // Arrange
-            var css = "a { border: 1px;\n}";
+            var css = @"
+                a {
+                    border: 1px;\n}";
             var options = Options.AllTrue();
 
             // Act
@@ -96,7 +103,11 @@ namespace HippoValidator.CssLintValidator.Tests
         public void CanValidateStyleWithApostrophe()
         {
             // Arrange
-            var css = "a { font-family: 'Arvo', Georgia, Times, serif; }";
+            var css = @"
+                a {
+                    font-family: 'Arvo', Georgia, Times, serif;
+                }
+            ";
             var options = Options.AllTrue();
 
             // Act
