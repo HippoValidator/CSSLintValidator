@@ -10,6 +10,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Executes CSSLint from .NET.</description>
     <projectUrl>https://github.com/HippoValidator/CSSLintValidator</projectUrl>
+    <iconUrl>https://raw.github.com/wiki/HippoValidator/CSSLintValidator/logo.png</iconUrl>
   </metadata>
   <files>
     <file src="bin\$Configuration$\HippoValidator.CssLintValidator.dll" target="lib\net40\HippoValidator.CssLintValidator.dll" />
